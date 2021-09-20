@@ -1,0 +1,14 @@
+{
+  "name": "api-lembretes",
+  "version": "1.0.0",
+  "description": "Minha primeira api, feita para usar em projeto flutter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vitoria dos Santos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
