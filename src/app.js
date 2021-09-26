@@ -1,10 +1,27 @@
+
 const express = require('express');
 const app = express();
-const morgan = require.resolve('morgan');
+const morgan = require('morgan');
 
 const routeLembretes = require('./routes/lembretes');
 
-app.use(morgan('dev'));
+app.use(morgan('dev'))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
+
+app.use((req, res, next)=>{
+    res.header('Acess-Control-Alow-Origin', '*');
+    res.header('Acess-Control-Alow-Header',
+        'Origin, X-Requrested-With, COntent-Type, Accept, Authorization');
+
+        if(req.method === 'OPTIONS'){
+            res.header('Acess-Control-Alow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+            return res.status(200).send({});
+        }
+
+        next();
+});
+
 app.use('/lembretes', routeLembretes);
 
 
