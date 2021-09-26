@@ -4,9 +4,17 @@ const db = require('../db').pool;
 
 //PEGA LEMBRETES EXISTENTES
 router.get("/", (req, res, next) => {
-    res.status(200).send({
-        mensagem:'Buscando lembretes'
-    });
+
+  db.connect();
+  
+  db.query(
+    'SELECT * FROM lembretes',
+    (error, result, fields) =>{
+      if(error) {return res.status(500).send ({error: error})}
+      return res.status(200).send({response: result.rows})
+    }
+  )
+
 });
 
 // CRIA UM NOVO LEMBRETE
