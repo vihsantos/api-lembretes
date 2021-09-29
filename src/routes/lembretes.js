@@ -2,16 +2,16 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db').pool;
 
-//PEGA LEMBRETES EXISTENTES
+//PEGA TODOS LEMBRETES EXISTENTES
 router.get("/", (req, res, next) => {
 
   db.connect();
-  
+
   db.query(
     'SELECT * FROM lembretes',
     (error, result, fields) =>{
       if(error) {return res.status(500).send ({error: error})}
-      return res.status(200).send({response: result.rows})
+      return res.status(200).send({lembretes: result.rows})
     }
   )
 
