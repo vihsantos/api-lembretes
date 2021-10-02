@@ -6,3 +6,5 @@ router.get('/', ""); // Pegar todos os lembretes
 router.get('/:id', ""); // Pegar o lembrete por id
 router.post('/', ""); // Criar um novo lembrete
 router.put('/:id', "") // Editar um lembrete
+
+module.exports= router;
