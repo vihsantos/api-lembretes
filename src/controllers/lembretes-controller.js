@@ -10,7 +10,7 @@ exports.pegarTodosLembretes = (req, res) => {
 };
 exports.pegarLembrete = (req, res) => {
     const id = parseInt(req.params.id)
-    db.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
+    db.query('SELECT * FROM lembretes WHERE id = $1', [id], (error, results) => {
         if (error) {
           throw error
         }
