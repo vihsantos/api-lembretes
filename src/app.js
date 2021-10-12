@@ -3,11 +3,17 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
+
 const routeLembretes = require('./routes/lembretes');
+const {sequelize} = require('./models')
 
 app.use(morgan('dev'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
+
+sequelize.sync().then(()=>{
+    console.log('banco de dados conectado')
+})
 
 app.use((req, res, next)=>{
     res.header('Acess-Control-Alow-Origin', '*');
