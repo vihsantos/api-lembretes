@@ -2,7 +2,11 @@ const { lembrete } = require('../models')
 const { sequelize, Op} = require('sequelize')
 
 exports.pegarTodosLembretes = async (req, res) => {
-    const lembretes = await lembrete.findAll()
+    const lembretes = await lembrete.findAll({
+      order: [[
+        ['id', 'DESC'],
+      ]]
+    })
     res.json(lembretes)
 };
 
