@@ -16,6 +16,10 @@ const lembrete = (sequelize, DataTypes) => {
             datal: {
                 type: DataTypes.DATE
             },
+            favorito:{
+                type: DataTypes.BOOLEAN,
+                allowNull: false
+            }
         },
         {   tableName: 'lembretes',
             timestamps: false

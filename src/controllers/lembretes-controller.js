@@ -18,8 +18,8 @@ exports.pegarLembrete = async (req, res)=>{
 };
 
 exports.criarLembrete = async (req, res) => {
-  const {titulo, descricao, datal} = req.body
-  await lembrete.create({titulo, descricao, datal})
+  const {titulo, descricao, datal, favorito} = req.body
+  await lembrete.create({titulo, descricao, datal, favorito})
   res.send('Lembrete criado com sucesso')
 };
 
