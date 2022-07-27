@@ -44,17 +44,18 @@ exports.buscarFavoritos = async (req, res) => {
   res.json(favoritos)
 };
 
-// exports.favoritar = async (req, res) => {
-//   const {id} = req.params;
+exports.favoritar = async (req, res) => {
+  const {id} = req.params;
 
-//   const {favorito} = req.body
+  
+  await lembrete.update({
+    favorito: "true"
+  },{
+    where: {
+      id: 
+        id
+    }
+  })
 
-//   await lembrete.update({favorito},{
-//     where: {
-//       id: 
-//         id
-//     }
-//   })
-
-//   res.send("Ok");
-// };
+  res.send("Lembrete atualizado com sucesso!");
+};
