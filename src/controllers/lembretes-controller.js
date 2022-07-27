@@ -47,9 +47,17 @@ exports.buscarFavoritos = async (req, res) => {
 exports.favoritar = async (req, res) => {
   const {id} = req.params;
 
+  var valor= false;
+
+  const l = await lembrete.findByPk(id);
+  
+  if (l.favorito == false){
+    valor = true;
+  }
+
   
   await lembrete.update({
-    favorito: "true"
+    favorito: valor
   },{
     where: {
       id: 
