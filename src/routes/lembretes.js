@@ -7,7 +7,6 @@ router.get('/', LembretesController.pegarTodosLembretes); // Pegar todos os lemb
 router.post('/', LembretesController.criarLembrete); // Criar um novo lembrete
 router.get('/:id', LembretesController.pegarLembrete); // Pegar lembrete por id
 router.delete('/:id', LembretesController.deletarLembrete); // Deletar lembrete
-router.get('/favoritos/', LembretesController.buscarFavoritos); // Buscar favoritos
 router.put("/favoritar/:id", LembretesController.favoritar); // favoritar
 
 module.exports= router;

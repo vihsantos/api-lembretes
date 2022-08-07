@@ -34,16 +34,6 @@ exports.deletarLembrete = async (req, res) => {
   res.send('Lembrete excluido com sucesso')
 };
 
-exports.buscarFavoritos = async (req, res) => {
-  const favoritos = await lembrete.findAll({
-    where: {
-      favorito: 
-        true
-    }
-  })
-  res.json(favoritos)
-};
-
 exports.favoritar = async (req, res) => {
   const {id} = req.params;
 
